@@ -17,7 +17,7 @@ class Molecule(object):
         self.color = c
         self.acc = a
         self.window = w
-        self.circle = Circle(Point(self.pos[0], self.pos[1]), 2)
+        self.circle = Circle(Point(self.pos[0], self.pos[1]), 5)
         self.circle.draw(self.window)
 
     # step time forward by one increment
@@ -28,10 +28,11 @@ class Molecule(object):
         self.vel += self.acc*timeStep
         self.pos += self.vel*timeStep
         # draw new circle at new position
-        self.circle = Circle(Point(self.pos[0], self.pos[1]), 2)
+        self.circle = Circle(Point(self.pos[0], self.pos[1]), 5)
         self.circle.setOutline(self.color)
         if self.window.isOpen():
             self.circle.draw(self.window)
+        print(self.index, self.pos)
 
     def setVel(self,velocity):
         self.vel = velocity
